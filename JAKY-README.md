@@ -22,7 +22,7 @@ npm init @eslint/config
 `
 
 
-#### Inicializar el proyecto
+### Inicializar el proyecto
 - Clonar el repositorio de git desde la terminal con
 `
   git clone https://github.com/FerCamposDev/jaky-journal.git
@@ -38,3 +38,15 @@ npm init @eslint/config
   npm run dev
 `
 accedemos desde http://localhost:3000
+
+
+#### Tareas a realizar
+[x] Inicializar el proyecto
+[] Configurar firebase
+[] Crear pagina para iniciar sesion
+[] Crear un tema de estilos
+[] Obtener valor del dolar
+[] Descontar comisión %
+[] Calcular el 10%
+[] Pasar a pesos
+[] Libro control de billetes de cada persona
