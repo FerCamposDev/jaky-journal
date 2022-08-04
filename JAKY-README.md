@@ -23,9 +23,9 @@ npm init @eslint/config
 
 
 #### Inicializar el proyecto
-- Clonar el repositorio de git con
+- Clonar el repositorio de git desde la terminal con
 `
-  https://github.com/FerCamposDev/jaky-journal.git
+  git clone https://github.com/FerCamposDev/jaky-journal.git
 `
 
 - Posicionarse con la terminal en la carpeta del proyecto y ejecutar
