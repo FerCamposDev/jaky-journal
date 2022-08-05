@@ -17,7 +17,7 @@ function Copyright(props: any) {
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        Jaky Journal
       </Link>
       {' '}
       {new Date().getFullYear()}
@@ -30,6 +30,7 @@ function IniciarSesion() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    // eslint-disable-next-line no-console
     console.log({
       email: data.get('email'),
       password: data.get('password'),
@@ -66,7 +67,7 @@ function IniciarSesion() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Iniciar Sesión
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
             <TextField
@@ -74,7 +75,7 @@ function IniciarSesion() {
               required
               fullWidth
               id="email"
-              label="Email Address"
+              label="Correo electrónico"
               name="email"
               autoComplete="email"
               autoFocus
@@ -84,14 +85,14 @@ function IniciarSesion() {
               required
               fullWidth
               name="password"
-              label="Password"
+              label="Contraseña"
               type="password"
               id="password"
               autoComplete="current-password"
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+              label="Recordar cuenta"
             />
             <Button
               type="submit"
@@ -99,13 +100,13 @@ function IniciarSesion() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              Iniciar
             </Button>
             <Grid container>
               <Grid item xs>
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <Link href="#" variant="body2">
-                  Forgot password?
+                  Olvidates tu contraseña?
                 </Link>
               </Grid>
               <Grid item>
