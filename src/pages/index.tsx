@@ -5,6 +5,7 @@ const Home: NextPage = () => (
   <div>
     Clean Project
     <Button variant="contained">Soy un boton de material ui</Button>
+    <Button variant="contained">Cambiar Theme</Button>
   </div>
 );
 
