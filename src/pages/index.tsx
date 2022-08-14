@@ -1,8 +1,15 @@
-import { Button } from '@mui/material';
-import { useColorMode } from 'contexts/ColorModeContext';
+/* import { Button } from '@mui/material';
+import { useColorMode } from 'contexts/ColorModeContext'; */
+import Dashboard from 'components/Dashboard';
 import type { NextPage } from 'next';
 
-const Home: NextPage = () => {
+const Home: NextPage = () => (
+  <div>
+    <Dashboard />
+  </div>
+);
+
+/* const Home: NextPage = () => {
   const { toggleColorMode } = useColorMode();
 
   return (
@@ -12,6 +19,6 @@ const Home: NextPage = () => {
       <Button variant="contained" onClick={toggleColorMode}>Cambiar Theme</Button>
     </div>
   );
-};
+}; */
 
 export default Home;
