@@ -89,8 +89,15 @@ const Ventas: FC<Props> = (props) => {
       <button
         type="button"
         onClick={guardarEdicion}
+        disabled={!ventaEnEdicion?.nombre && !ventaEnEdicion?.totalPesos}
       >
         Guardar
+      </button>
+      <button
+        type="button"
+        onClick={() => eliminarVenta(ventaEnEdicion!.id)}
+      >
+        Eliminar
       </button>
     </div>
   );
@@ -109,7 +116,7 @@ const Ventas: FC<Props> = (props) => {
           </li>
         ))}
       </ul>
-      <button type="button" onClick={agregarVenta}>Agregar</button>
+      <button type="button" onClick={agregarVenta} disabled={ventaEnEdicion !== undefined}>Agregar</button>
     </div>
   );
 };

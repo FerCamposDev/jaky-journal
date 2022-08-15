@@ -26,7 +26,7 @@ const SueldoParticionado: FC<Props> = (props) => {
 
   return (
     <div>
-      <h3>SueldoParticionado</h3>
+      <h3>Sueldo Particionado</h3>
       <span>{`Traer ${sueldoDividido.dolar} en dolar.`}</span>
       <span>{`Traer ${sueldoDividido.pesos} en pesos.`}</span>
     </div>
