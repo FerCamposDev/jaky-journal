@@ -1,3 +1,4 @@
+import { useDolar } from 'contexts/DolarContext';
 import { useEffect, useState } from 'react';
 import SueldoParticionado from './SueldoParticionado';
 import Ventas from './Ventas';
@@ -9,6 +10,7 @@ export type PosibleVenta = {
 }
 
 const Dashboard = () => {
+  const { precio, actualizarPrecio, loading } = useDolar();
   const [cobroTotal, setCobroTotal] = useState(4000);
   const [sueldo, setSueldo] = useState(800);
   const [ahorro, setAhorro] = useState(0);
@@ -44,9 +46,15 @@ const Dashboard = () => {
         Ahorro:&nbsp;
         {ahorro}
       </span>
+      <br />
+      <span>
+        Dolar Venta:&nbsp;
+        {precio}
+      </span>
+      <button type="button" onClick={() => actualizarPrecio()}>{loading ? 'Actualizando' : 'Actualizar precio'}</button>
 
       <Ventas posiblesVentas={posiblesVentas} setPosiblesVentas={setPosiblesVentas} />
-      <SueldoParticionado posiblesVentas={posiblesVentas} sueldo={sueldo} valorDolar={300} />
+      <SueldoParticionado posiblesVentas={posiblesVentas} sueldo={sueldo} valorDolar={precio} />
     </div>
   );
 };
