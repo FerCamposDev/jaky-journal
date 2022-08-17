@@ -14,5 +14,7 @@ const clientCredentials = {
 if (!firebase.getApps().length) {
   firebase.initializeApp(clientCredentials);
 }
+// firebase.initializeApp(clientCredentials);
 
+// export const { auth } = firebase!;
 export default firebase;
