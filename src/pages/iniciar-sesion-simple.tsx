@@ -1,16 +1,24 @@
-import { getAuth/* , signOut */ } from 'firebase/auth';
+import { auth, signOut } from 'fb/client';
 
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 const IniciarSesionSimple = () => {
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(getAuth());
+  const [signInWithGoogle] = useSignInWithGoogle(auth);
+  const [user, loading, error] = useAuthState(auth);
+
+  const cerrarSesion = async () => {
+    try {
+      await signOut(auth);
+    } catch (err) {
+      console.log('logout err', err);
+    }
+  };
 
   if (error) {
     return (
       <div>
         <p>
-          Error:
-          {' '}
+          Error iniciando sesion:&nbsp;
           {error.message}
         </p>
       </div>
@@ -18,28 +26,33 @@ const IniciarSesionSimple = () => {
   }
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p>Cargando...</p>;
   }
 
   if (user) {
     return (
       <div>
         <p>
-          Signed In User:
-          {' '}
-          {user.user.email}
+          Sesion iniciada:&nbsp;
+          {user.email}
         </p>
+        <br />
         DATOS:
         <br />
         {JSON.stringify(user)}
+        <br />
+        <button type="button" onClick={cerrarSesion}>
+          cerrar sesion
+        </button>
       </div>
     );
   }
+
   return (
     <div>
-      IniciarSesionSimple
+      Iniciar Sesion
       <button type="button" onClick={() => signInWithGoogle()}>
-        Sign In
+        Iniciar sesion
       </button>
     </div>
   );
