@@ -16,11 +16,14 @@ const app = firebase.initializeApp(clientCredentials);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
+const db = firebase.firestore(app);
+
 export {
   app,
   auth,
   googleProvider,
   signOut,
+  db,
 };
 
 export default firebase;
