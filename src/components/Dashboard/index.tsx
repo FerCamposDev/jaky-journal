@@ -23,7 +23,7 @@ const Dashboard = () => {
     } else {
       setAhorro(0);
     }
-  }, [cobroTotal]);
+  }, [cobroTotal, sueldo]);
 
   return (
     <div>

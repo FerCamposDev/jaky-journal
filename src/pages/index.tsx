@@ -1,5 +1,6 @@
 /* import { Button } from '@mui/material';
 import { useColorMode } from 'contexts/ColorModeContext'; */
+import withAuth from 'components/Auth/withAuth';
 import Dashboard from 'components/Dashboard';
 import type { NextPage } from 'next';
 
@@ -21,4 +22,4 @@ const Home: NextPage = () => (
   );
 }; */
 
-export default Home;
+export default withAuth(Home);
