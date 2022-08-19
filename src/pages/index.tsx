@@ -2,12 +2,15 @@
 import { useColorMode } from 'contexts/ColorModeContext'; */
 import withAuth from 'components/Auth/withAuth';
 import Dashboard from 'components/Dashboard';
+import Layout from 'components/Layout';
 import type { NextPage } from 'next';
 
 const Home: NextPage = () => (
-  <div>
-    <Dashboard />
-  </div>
+  <Layout titulo="Inicio">
+    <div>
+      <Dashboard />
+    </div>
+  </Layout>
 );
 
 /* const Home: NextPage = () => {
