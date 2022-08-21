@@ -54,6 +54,7 @@
                 "tsx": "never"
             }
         ],
-        "react/button-has-type": "off"
+        "react/button-has-type": "off",
+        "import/prefer-default-export": "off"
     }
 }

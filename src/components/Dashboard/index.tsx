@@ -26,7 +26,7 @@ const Dashboard = () => {
   }, [cobroTotal, sueldo]);
 
   return (
-    <div>
+    <div style={{ border: 'solid 1px red', margin: '10px' }}>
       Dashboard
       <br />
       Total:&nbsp;
