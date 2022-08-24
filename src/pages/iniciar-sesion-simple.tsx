@@ -39,7 +39,7 @@ const IniciarSesionSimple = () => {
         <br />
         DATOS:
         <br />
-        {JSON.stringify(user)}
+        <pre>{JSON.stringify(user, null, 2)}</pre>
         <br />
         <button type="button" onClick={cerrarSesion}>
           cerrar sesion

@@ -2,7 +2,6 @@ import { User } from 'firebase/auth';
 import uniqid from 'uniqid';
 
 export type Usuario = {
-  docId?: string;
   uid: string;
   nombre: string;
   email: string;
