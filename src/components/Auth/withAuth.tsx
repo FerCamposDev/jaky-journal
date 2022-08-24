@@ -1,6 +1,6 @@
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from 'fb/client';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 /*
@@ -17,6 +17,12 @@ const withAuth = (Componente: FC) => {
     const [user, loading] = useAuthState(auth);
     const router = useRouter();
 
+    useEffect(() => {
+      if (!user && !loading) {
+        router.push('/iniciar-sesion-simple');
+      }
+    }, [user, loading]);
+
     if (loading) {
       return <div>Cargando</div>;
     }
@@ -24,20 +30,13 @@ const withAuth = (Componente: FC) => {
     if (!user) {
       return (
         <div>
-          <h1>Debes loguearte</h1>
-          <button onClick={() => router.push('/iniciar-sesion-simple')}>
-            Ir al inicio de sesion
-          </button>
+          <h1>Redirigiendo a login</h1>
         </div>
       );
     }
 
     return <Componente {...props} />;
   };
-  /* if (Componente.getInitialProps) {
-    Auth.getInitialProps = Componente.getInitialProps;
-  } */
-
   return Auth;
 };
 
