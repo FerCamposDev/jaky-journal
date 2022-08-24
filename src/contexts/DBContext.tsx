@@ -3,6 +3,7 @@ import {
   FC,
   ReactNode,
   useContext,
+  useEffect,
   useMemo,
   useState,
 } from 'react';
@@ -22,9 +23,13 @@ const DBContext = createContext<DBContextProps>({
 });
 
 export const DBProvider: FC<{ children: ReactNode }> = ({ children }) => {
+  const [loading, setLoading] = useState(false);
   const [esAdmin, setEsAdmin] = useState(false);
   const [usuarios, setUsuarios] = useState<Usuario[]>([]);
-  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // do something
+  }, []);
 
   const values = useMemo(() => ({
     esAdmin,
