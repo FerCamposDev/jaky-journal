@@ -1,3 +1,4 @@
+import ModalVenta from 'components/ModalVenta';
 import { useDB } from 'contexts/DBContext';
 import { FormEvent, useState } from 'react';
 import { deleteUsuario, postUsuario } from 'services/usuarios';
@@ -36,6 +37,7 @@ const GestorDeUsuarios = () => {
           <li key={usuario.uid}>
             {usuario.nombre}
             <button onClick={() => deleteUsuario(usuario.uid)}>eliminar</button>
+            <ModalVenta usuario={usuario} />
           </li>
         ))}
       </ul>

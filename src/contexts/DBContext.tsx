@@ -19,7 +19,6 @@ type DBContextProps = {
   esAdmin: boolean;
   usuarios: Usuario[];
   loading: boolean;
-  // setPrecio: Dispatch<SetStateAction<number>>;
 }
 
 const DBContext = createContext<DBContextProps>({
