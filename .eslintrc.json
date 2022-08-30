@@ -57,6 +57,7 @@
         "react/button-has-type": "off",
         "import/prefer-default-export": "off",
         "no-shadow": "off",
-        "consistent-return": "off"
+        "consistent-return": "off",
+        "linebreak-style": "off"
     }
 }

@@ -19,7 +19,7 @@ const withAuth = (Componente: FC) => {
 
     useEffect(() => {
       if (!user && !loading) {
-        router.push('/iniciar-sesion-simple');
+        router.push('/iniciar-sesion');
       }
     }, [user, loading]);
 

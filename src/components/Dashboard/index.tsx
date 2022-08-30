@@ -17,7 +17,7 @@ const Dashboard = () => {
   const [posiblesVentas, setPosiblesVentas] = useState<PosibleVenta[]>([]);
 
   useEffect(() => {
-    if (cobroTotal) {
+    if (cobroTotal && cobroTotal > sueldo) {
       const sinDiezmo = cobroTotal * 0.90;
       setAhorro(sinDiezmo - sueldo);
     } else {
