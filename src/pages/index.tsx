@@ -5,7 +5,7 @@ import GestorDeUsuarios from 'components/GestorDeUsuarios';
 import Layout from 'components/Layout';
 
 const Home: NextPage = () => (
-  <Layout titulo="Inicio">
+  <Layout titulo="Jackie Journal">
     {/* chequear si es user admin */}
     <div>
       <Dashboard />

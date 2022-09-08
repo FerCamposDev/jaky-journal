@@ -12,6 +12,7 @@ import Button from '@mui/lab/LoadingButton';
 import { auth } from 'fb/client';
 import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useRouter } from 'next/router';
+import { useColorMode } from '../contexts/ColorModeContext';
 
 function Copyright(props: any) {
   return (
@@ -32,6 +33,8 @@ function IniciarSesion() {
   const [user] = useAuthState(auth);
   const [cargando, modificarVariableCargando] = useState(false);
   const router = useRouter();
+
+  const tema = useColorMode();
 
   async function iniciar() {
     modificarVariableCargando(true);
@@ -80,7 +83,7 @@ function IniciarSesion() {
           <Box sx={{ mt: 1 }}>
 
             <Button
-              color="inherit"
+              // color="inherit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
@@ -92,6 +95,9 @@ function IniciarSesion() {
               </div>
               Continuar con Google
             </Button>
+
+            <span>{tema.mode}</span>
+            <button onClick={tema.toggleColorMode}>Cambiar tema</button>
 
             <Copyright sx={{ mt: 5 }} />
           </Box>

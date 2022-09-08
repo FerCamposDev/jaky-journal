@@ -1,13 +1,25 @@
 import { useDolar } from 'contexts/DolarContext';
 import { useEffect, useState } from 'react';
+import Button from '@mui/lab/LoadingButton';
+import { Input } from '@mui/material';
 import SueldoParticionado from './SueldoParticionado';
 import Ventas from './Ventas';
+// import { fontSize, fontStyle, textTransform } from '@mui/system';
 
 export type PosibleVenta = {
   id: string;
   nombre: string;
   totalPesos: number;
 }
+// const App = () => {
+//   const containerStyle = {
+//     backgroundImage:
+//       'url(https://cdn.pixabay.com/photo/2021/09/02/16/48/cat-6593947_960_720.jpg)',
+//     width: '600px',
+//     height: '600px',
+//   };
+//   return <div style={containerStyle}><h1 style={{ color: 'black' }}>Hi! Try edit me</h1></div>;
+// }
 
 const Dashboard = () => {
   const { precio, actualizarPrecio, loading } = useDolar();
@@ -26,14 +38,17 @@ const Dashboard = () => {
   }, [cobroTotal, sueldo]);
 
   return (
-    <div style={{ border: 'solid 1px red', margin: '10px' }}>
-      Dashboard
+    <div style={{
+      border: 'solid 1px white', backgroundColor: '#58465a', margin: '10px', padding: '10px', fontFamily: 'cursive',
+    }}
+    >
+      <h2 style={{ textTransform: 'uppercase' }}> Dashboard </h2>
       <br />
       Total:&nbsp;
-      <input type="text" defaultValue={cobroTotal} onChange={(e) => setCobroTotal(Number(e.target.value))} />
+      <Input type="text" color="secondary" defaultValue={cobroTotal} onChange={(e) => setCobroTotal(Number(e.target.value))} />
       <br />
       Sueldo:&nbsp;
-      <input type="text" defaultValue={sueldo} onChange={(e) => setSueldo(Number(e.target.value))} />
+      <Input type="text" color="secondary" defaultValue={sueldo} onChange={(e) => setSueldo(Number(e.target.value))} />
 
       <br />
 
@@ -51,7 +66,17 @@ const Dashboard = () => {
         Dolar Venta:&nbsp;
         {precio}
       </span>
-      <button type="button" onClick={() => actualizarPrecio()}>{loading ? 'Actualizando' : 'Actualizar precio'}</button>
+      <Button
+        size="small"
+        color="success"
+        variant="contained"
+        sx={{ ml: 2, mt: 1, mb: 2 }}
+        type="button"
+        onClick={() => actualizarPrecio()}
+      >
+        {loading ? 'Actualizando' : 'Actualizar precio'}
+
+      </Button>
 
       <Ventas posiblesVentas={posiblesVentas} setPosiblesVentas={setPosiblesVentas} />
       <SueldoParticionado posiblesVentas={posiblesVentas} sueldo={sueldo} valorDolar={precio} />
