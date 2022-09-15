@@ -4,22 +4,12 @@ import Button from '@mui/lab/LoadingButton';
 import { Input } from '@mui/material';
 import SueldoParticionado from './SueldoParticionado';
 import Ventas from './Ventas';
-// import { fontSize, fontStyle, textTransform } from '@mui/system';
 
 export type PosibleVenta = {
   id: string;
   nombre: string;
   totalPesos: number;
 }
-// const App = () => {
-//   const containerStyle = {
-//     backgroundImage:
-//       'url(https://cdn.pixabay.com/photo/2021/09/02/16/48/cat-6593947_960_720.jpg)',
-//     width: '600px',
-//     height: '600px',
-//   };
-//   return <div style={containerStyle}><h1 style={{ color: 'black' }}>Hi! Try edit me</h1></div>;
-// }
 
 const Dashboard = () => {
   const { precio, actualizarPrecio, loading } = useDolar();
@@ -49,7 +39,6 @@ const Dashboard = () => {
       <br />
       Sueldo:&nbsp;
       <Input type="text" color="secondary" defaultValue={sueldo} onChange={(e) => setSueldo(Number(e.target.value))} />
-
       <br />
 
       <span>
@@ -75,7 +64,6 @@ const Dashboard = () => {
         onClick={() => actualizarPrecio()}
       >
         {loading ? 'Actualizando' : 'Actualizar precio'}
-
       </Button>
 
       <Ventas posiblesVentas={posiblesVentas} setPosiblesVentas={setPosiblesVentas} />

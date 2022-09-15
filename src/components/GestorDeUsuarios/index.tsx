@@ -6,7 +6,6 @@ import { generarUsuario } from 'types/usuario';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/lab/LoadingButton';
-// import { Input } from '@mui/material';
 import TextField from '@mui/material/TextField';
 
 const GestorDeUsuarios = () => {
@@ -54,17 +53,6 @@ const GestorDeUsuarios = () => {
 
       <div>
         <form onSubmit={handleSubmit}>
-          {/* <Input
-
-            name="nombre"
-            variant="contained"
-            color="secondary"
-            value={nuevoUsuario.nombre}
-            onChange={(e) => setNuevoUsuario({
-              ...nuevoUsuario,
-              nombre: e.target.value,
-            })}
-          /> */}
           <TextField
             id="filled-basic"
             label="Nombre"
@@ -88,15 +76,6 @@ const GestorDeUsuarios = () => {
               foto: e.target.value,
             })}
           />
-          {/* <Input
-            color="secondary"
-            name="foto"
-            value={nuevoUsuario.foto}
-            onChange={(e) => setNuevoUsuario({
-              ...nuevoUsuario,
-              foto: e.target.value,
-            })}
-             /> */}
           <Button
             color="secondary"
             type="submit"
