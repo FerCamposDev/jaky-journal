@@ -90,7 +90,7 @@ const ModalVenta: FC<Props> = ({ usuario }) => {
 
   return (
     <div>
-      <Button variant="outlined" size="small" onClick={handleClickOpen}>
+      <Button color="secondary" variant="contained" size="small" onClick={handleClickOpen}>
         Agregar venta
       </Button>
       <Dialog open={open} onClose={handleClose}>

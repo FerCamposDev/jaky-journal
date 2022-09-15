@@ -3,6 +3,8 @@ import {
   Dispatch, FC, SetStateAction, useState,
 } from 'react';
 import uniqid from 'uniqid';
+import Button from '@mui/lab/LoadingButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { PosibleVenta } from '.';
 
 type Props = {
@@ -65,18 +67,20 @@ const Ventas: FC<Props> = (props) => {
     <div>
       <span>{`Cliente: ${venta.nombre}`}</span>
       <span>{`Total Pesos: $${venta.totalPesos}`}</span>
-      <button
+      <Button
         type="button"
         onClick={() => setVentaEnEdicion(venta)}
       >
         Editar
-      </button>
-      <button
-        type="button"
+      </Button>
+      <Button
+        variant="outlined"
+        startIcon={<DeleteIcon />}
+        // type="button"
         onClick={() => eliminarVenta(venta.id)}
       >
         Eliminar
-      </button>
+      </Button>
     </div>
   );
 
@@ -86,19 +90,21 @@ const Ventas: FC<Props> = (props) => {
       <input value={ventaEnEdicion?.nombre} name="nuevoNombre" onChange={handlerEdicion} />
       <span>Total Pesos: $</span>
       <input value={ventaEnEdicion?.totalPesos} name="nuevoTotal" onChange={handlerEdicion} />
-      <button
+      <Button
+        color="secondary"
         type="button"
         onClick={guardarEdicion}
         disabled={!ventaEnEdicion?.nombre && !ventaEnEdicion?.totalPesos}
       >
         Guardar
-      </button>
-      <button
+      </Button>
+      <Button
+        color="secondary"
         type="button"
         onClick={() => eliminarVenta(ventaEnEdicion!.id)}
       >
         Eliminar
-      </button>
+      </Button>
     </div>
   );
 
@@ -116,7 +122,16 @@ const Ventas: FC<Props> = (props) => {
           </li>
         ))}
       </ul>
-      <button type="button" onClick={agregarVenta} disabled={ventaEnEdicion !== undefined}>Agregar</button>
+      <Button
+        type="button"
+        size="small"
+        color="secondary"
+        variant="contained"
+        onClick={agregarVenta}
+        disabled={ventaEnEdicion !== undefined}
+      >
+        Agregar
+      </Button>
     </div>
   );
 };

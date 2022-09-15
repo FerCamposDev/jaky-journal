@@ -1,8 +1,12 @@
 import ModalVenta from 'components/ModalVenta';
 import { useDB } from 'contexts/DBContext';
 import { FormEvent, useState } from 'react';
-import { deleteUsuario, postUsuario } from 'services/usuarios';
+import { postUsuario } from 'services/usuarios';
 import { generarUsuario } from 'types/usuario';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Button from '@mui/lab/LoadingButton';
+import TextField from '@mui/material/TextField';
 
 const GestorDeUsuarios = () => {
   const { usuarios, esAdmin } = useDB();
@@ -30,13 +34,18 @@ const GestorDeUsuarios = () => {
   }
 
   return (
-    <div style={{ border: 'solid 1px blue', margin: '10px' }}>
+    <div style={{
+      border: 'solid 1px white', backgroundColor: '#58465a', margin: '10px', padding: '10px', fontFamily: 'cursive',
+    }}
+    >
       <h3>Gestor De Usuarios</h3>
       <ul>
         {usuarios.map((usuario) => (
           <li key={usuario.uid}>
             {usuario.nombre}
-            <button onClick={() => deleteUsuario(usuario.uid)}>eliminar</button>
+            <IconButton>
+              <DeleteIcon />
+            </IconButton>
             <ModalVenta usuario={usuario} />
           </li>
         ))}
@@ -44,15 +53,22 @@ const GestorDeUsuarios = () => {
 
       <div>
         <form onSubmit={handleSubmit}>
-          <input
-            name="nombre"
+          <TextField
+            id="filled-basic"
+            label="Nombre"
+            variant="filled"
+            color="secondary"
             value={nuevoUsuario.nombre}
             onChange={(e) => setNuevoUsuario({
               ...nuevoUsuario,
               nombre: e.target.value,
             })}
           />
-          <input
+          <TextField
+            id="filled-basic"
+            label="Apellido"
+            variant="filled"
+            color="secondary"
             name="foto"
             value={nuevoUsuario.foto}
             onChange={(e) => setNuevoUsuario({
@@ -60,9 +76,14 @@ const GestorDeUsuarios = () => {
               foto: e.target.value,
             })}
           />
-          <button type="submit">
+          <Button
+            color="secondary"
+            type="submit"
+            variant="contained"
+            sx={{ ml: 2, mt: 1, mb: 2 }}
+          >
             Guardar nuevo usuario
-          </button>
+          </Button>
         </form>
       </div>
     </div>

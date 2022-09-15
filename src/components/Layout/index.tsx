@@ -2,6 +2,7 @@ import { auth } from 'fb/client';
 import { signOut } from 'firebase/auth';
 import Head from 'next/head';
 import React, { FC, ReactNode } from 'react';
+import Button from '@mui/lab/LoadingButton';
 
 type Props = {
   titulo: string;
@@ -25,19 +26,25 @@ const Layout: FC<Props> = ({ titulo, children }) => {
 
       <nav
         style={{
-          display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#aaa',
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#58465a', margin: '10px', padding: '10px', fontFamily: 'cursive', textTransform: 'uppercase', fontSize: '30px',
         }}
       >
         <h2>{titulo}</h2>
-        <button onClick={cerrarSesion}>Cerrar sesion</button>
+        <Button
+          color="secondary"
+          variant="contained"
+          onClick={cerrarSesion}
+        >
+          Cerrar sesion
+        </Button>
       </nav>
 
       <main>
         {children}
       </main>
 
-      <footer style={{ display: 'flex', justifyContent: 'center', backgroundColor: '#aaa' }}>
-        My footer
+      <footer style={{ display: 'flex', justifyContent: 'center' }}>
+        ©Jackie Journal
       </footer>
     </>
   );
